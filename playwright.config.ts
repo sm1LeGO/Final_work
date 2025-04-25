@@ -1,27 +1,23 @@
 import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
-    // Папка с тестами
-    testDir: 'src',  // тесты теперь находятся в папке src
+    testDir: 'src',
 
-    // Таймаут для каждого теста
     timeout: 30_000,
 
-    // Перезапуск упавших тестов на CI
     retries: process.env.CI ? 2 : 0,
 
-    // Генерация отчётов
     reporter: [
-        ['list'],               // вывод в консоль
-        ['allure-playwright']  // сбор данных для Allure
+        ['list'],
+        ['allure-playwright']
     ],
 
     use: {
-        baseURL: 'https://new.fophelp.pro',  // базовый URL для page.goto('/')
-        headless: true,                       // без GUI
-        screenshot: 'only-on-failure',        // скриншоты только при падении
-        video: 'retain-on-failure',           // видео только при падении
-        trace: 'on-first-retry'              // трассировка при первом релоаде
+        baseURL: 'https://new.fophelp.pro',
+        headless: true,
+        screenshot: 'only-on-failure',
+        video: 'retain-on-failure',
+        trace: 'on-first-retry'
     },
 
     projects: [
