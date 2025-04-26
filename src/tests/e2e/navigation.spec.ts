@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Navigation menu', () => {
-    test('Home link navigates to main page and display correct info', async ({ page }) => {
+    test('Home link navigates to main page and display info', async ({ page }) => {
         const brand = page.locator('a.navbar-brand');
         await page.goto('https://new.fophelp.pro/');
         await brand.click();

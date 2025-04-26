@@ -1,0 +1,45 @@
+{
+  "cookies": [
+    {
+      "name": "X-Username",
+      "value": "ilya.kravecs%40gmail.com",
+      "domain": "new.fophelp.pro",
+      "path": "/",
+      "expires": 1745719684.252411,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Strict"
+    },
+    {
+      "name": "Session-User",
+      "value": "ilya.kravecs%40gmail.com",
+      "domain": "new.fophelp.pro",
+      "path": "/",
+      "expires": 1745719684.252475,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Strict"
+    },
+    {
+      "name": "X-Access-Token",
+      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiaWx5YS5rcmF2ZWNzQGdtYWlsLmNvbSIsImp0aSI6ImNmM2U1MGIxLTlkNjktNDBhZC05MTA4LTAxYjhkZDUyNDNmZiIsImV4cCI6MTc0NTcwODg4NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo2MTk1NSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDIwMCJ9.Ve3MfApTHHVGIR0Hs3ec_nxR7fvsccPgoNftspcQHms",
+      "domain": "new.fophelp.pro",
+      "path": "/",
+      "expires": 1745701684.252346,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Strict"
+    },
+    {
+      "name": "X-Refresh-Token",
+      "value": "d3de298f-0c18-4cf8-99cb-47cdea512839",
+      "domain": "new.fophelp.pro",
+      "path": "/",
+      "expires": 1745719684.252448,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Strict"
+    }
+  ],
+  "origins": []
+}

@@ -1,8 +1,8 @@
 node_modules/
 dist/
-allure-results/
 allure-report/
 pacts/
 logs/
 .vscode/
 .idea/
+allure-results/
