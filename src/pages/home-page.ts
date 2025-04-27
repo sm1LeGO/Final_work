@@ -1,28 +1,29 @@
 import { Page, Locator } from '@playwright/test';
 
 export class HomePage {
-    public readonly page: Page;
-    public readonly header: Locator;
-    public readonly servicesList: Locator;
-    public readonly serviceItems: Locator;
+    public constructor(public page: Page) {}
 
-    public constructor(page: Page) {
-        this.page = page;
-        this.header = page.locator('h1');
-        this.servicesList = page.locator('ul.services');
-        this.serviceItems = page.locator('ul.services > li');
+    public get header(): Locator {
+        return this.page.locator('h1');
     }
+    public get servicesList(): Locator {
+        return this.page.locator('ul.services');
+    }
+    public get serviceItems(): Locator {
+        return this.page.locator('ul.services > li');
+    }
+
     public async goto(): Promise<void> {
         await this.page.goto('/');
-        await this.header.waitFor();
+        await this.header.waitFor({ state: 'visible' });
     }
     public async getHeaderText(): Promise<string> {
-        return await this.header.textContent() ?? '';
+        return (await this.header.textContent()) ?? '';
     }
     public async getServicesCount(): Promise<number> {
         return await this.serviceItems.count();
     }
     public async getServiceName(index: number): Promise<string> {
-        return await this.serviceItems.nth(index).textContent() ?? '';
+        return (await this.serviceItems.nth(index).textContent()) ?? '';
     }
 }

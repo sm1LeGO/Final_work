@@ -1,32 +1,38 @@
 import { Page, Locator } from '@playwright/test';
 
 export class RegisterPage {
-    public page: Page;
-    public emailInput: Locator;
-    public passwordInput: Locator;
-    public confirmPasswordInput: Locator;
-    public vatCheckbox: Locator;
-    public generalCheckbox: Locator;
-    public groupSelect: Locator;
-    public registerButton: Locator;
-    public successMessage: Locator;
+    public constructor(public page: Page) {}
 
-    public constructor(page: Page) {
-        this.page = page;
-        this.emailInput = page.locator('#formEmail');
-        this.passwordInput = page.locator('#formPassword');
-        this.confirmPasswordInput = page.locator('#formConfirmPassword');
-        this.vatCheckbox = page.locator('#formFopVat');
-        this.generalCheckbox = page.locator('#formFopGeneral');
-        this.groupSelect = page.locator('#formFopGroup');
-        this.registerButton = page.locator('button[type="submit"]', { hasText: 'Зареєструватися' });
-        this.successMessage = page.locator('h5');
+    public get emailInput(): Locator {
+        return this.page.locator('#formEmail');
     }
+    public get passwordInput(): Locator {
+        return this.page.locator('#formPassword');
+    }
+    public get confirmPasswordInput(): Locator {
+        return this.page.locator('#formConfirmPassword');
+    }
+    public get vatCheckbox(): Locator {
+        return this.page.locator('#formFopVat');
+    }
+    public get generalCheckbox(): Locator {
+        return this.page.locator('#formFopGeneral');
+    }
+    public get groupSelect(): Locator {
+        return this.page.locator('#formFopGroup');
+    }
+    public get registerButton(): Locator {
+        return this.page.locator('button[type="submit"]', { hasText: 'Зареєструватися' });
+    }
+    public get successMessage(): Locator {
+        return this.page.locator('h5');
+    }
+
     public async goto(): Promise<void> {
-        await this.page.goto('https://new.fophelp.pro/');
-        const registerLink = this.page.getByRole('link', { name: 'Реєстрація' });
+        await this.page.goto('/');
+        const link = this.page.getByRole('link', { name: 'Реєстрація' });
         await Promise.all([
-            registerLink.click(),
+            link.click(),
             this.page.waitForURL('**/auth/register')
         ]);
         await this.emailInput.waitFor({ state: 'visible', timeout: 10000 });

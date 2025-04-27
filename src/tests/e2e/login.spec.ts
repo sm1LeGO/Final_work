@@ -14,7 +14,7 @@ test.describe('Login page UI tests', () => {
         await page.screenshot({ path: 'screenshots/login-success.png', fullPage: true });
     });
 
-    test('user sees error for invalid credentials', async ({ page }) => {
+    test('user see error for invalid credentials', async ({ page }) => {
         const loginPage = new LoginPage(page);
         await loginPage.goto();
         await loginPage.login('ilya.kravecs@gmail.com', 'wrongpass');

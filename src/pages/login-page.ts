@@ -1,21 +1,24 @@
 import { Page, Locator } from '@playwright/test';
 
 export class LoginPage {
-    private page: Page;
-    public readonly emailInput: Locator;
-    public readonly passwordInput: Locator;
-    public readonly loginButton: Locator;
-    public readonly errorMessage: Locator;
-    public readonly greetingLink: Locator;
+    public constructor(public page: Page) {}
 
-    public constructor(page: Page) {
-        this.page = page;
-        this.emailInput = page.locator('#email');
-        this.passwordInput = page.locator('#password');
-        this.loginButton = page.locator('button[type="submit"]');
-        this.errorMessage = page.locator('label.form-label', { hasText: 'Помилка авторизації. Неправильний логін чи пароль' });
-        this.greetingLink = page.locator('a.text-dark.nav-link', { hasText: 'Вітаю,' });
+    public get emailInput(): Locator {
+        return this.page.locator('#email');
     }
+    public get passwordInput(): Locator {
+        return this.page.locator('#password');
+    }
+    public get loginButton(): Locator {
+        return this.page.locator('button[type="submit"]');
+    }
+    public get errorMessage(): Locator {
+        return this.page.locator('label.form-label', { hasText: 'Помилка авторизації. Неправильний логін чи пароль' });
+    }
+    public get greetingLink(): Locator {
+        return this.page.locator('a.text-dark.nav-link', { hasText: 'Вітаю,' });
+    }
+
     public async goto(): Promise<void> {
         await this.page.goto('/');
         await this.page.getByRole('link', { name: 'Увійти' }).click();
