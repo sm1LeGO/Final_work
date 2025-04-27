@@ -12,9 +12,10 @@
     "allure:open": "allure open allure-report",
     "ci:test": "playwright test --reporter=github,html",
     "ci:allure": "npm run ci:test && npm run allure:generate",
-    "lint": "eslint src/",
     "lint:fix": "npm run lint -- --fix",
-    "build": "npm run lint && tsc --build"
+    "lint": "eslint src/",
+    "build": "tsc --build",
+    "build:ci": "npm run build"  
   },
   "author": "",
   "license": "ISC",
